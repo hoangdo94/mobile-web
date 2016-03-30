@@ -32,7 +32,7 @@ function register(info, callback) {
           callback(response);
         else callback(null);
       })
-      
+
 }
 
 function getUsers(callback) {
@@ -40,7 +40,17 @@ function getUsers(callback) {
 }
 
 function getUser(userId, callback) {
-
+  var settings = {
+    "url": "http://api.ws.hoangdo.info/users/" + userId,
+    "method": "GET",
+  };
+  $.ajax(settings).done(function(response) {
+    if (response.status === 1) {
+      callback(response.data);
+    } else {
+      callback(null);
+    }
+  });
 }
 
 function updateInfo(userId, newInfo, callback) {
@@ -85,4 +95,9 @@ function getQueryVariable(variable) {
         }
     }
     return null;
+}
+
+function isSignedIn() {
+  var user = Lockr.get('user');
+  return (!!user);
 }

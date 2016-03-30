@@ -12,12 +12,16 @@ $(document).ready(function() {
 
     $('#cover').attr('src', coverUrl).attr('alt', book.title);
     $('#title').text(book.title);
-    $('#created').text(book.createdAt);
-    $('#modified').text(book.updatedAt);
+    $('#created').text((new Date(book.createdAt)).toLocaleString());
+    $('#modified').text((new Date(book.updatedAt)).toLocaleString());
     $('#author').text(book.author);
     $('#publish').text(publishYear);
     $('#genres').text(genres);
     $('#review').text(book.review);
+
+    getUser(book.userId, function(user) {
+      $('#user').text(user.name || user.username);
+    });
 
     $('#book-loading').hide();
     $('#details').show();
