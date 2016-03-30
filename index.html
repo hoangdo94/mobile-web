@@ -1,62 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mobile Web</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile Web</title>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/datatables.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <div class="container">
+</head>
 
-      <!-- Static navbar -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Mobile Web</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <button id="btn-add-book" type="button" class="btn btn-primary navbar-btn">
-                Add Book
-              </button>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li id="auth-link"><a href="auth.html">Register/Login</a></li>
-              <p id="nav-user-info" class="navbar-text">
-                Signed in as <a href="user.html">Mark Otto</a> (<a href="#" id="sign-out">Sign Out</a>)
-              </p>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
+<body>
+  <div class="container">
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Mobile Web</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li id="auth-link"><a href="auth.html">Register/Login</a></li>
+            <p id="nav-user-info" class="navbar-text">
+              Signed in as <a href="user.html">Mark Otto</a> (<a href="#" id="sign-out">Sign Out</a>)
+            </p>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
       </div>
+      <!--/.container-fluid -->
+    </nav>
 
-    </div> <!-- /container -->
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Books List</h3>
+      </div>
+      <div class="panel-body">
+        <div id="loading">
+          <i class="fa fa-spinner fa-pulse"></i> Loading
+        </div>
+        <table id="books" class="table table-hover" width="100%" style="display:none;">
+          <thead>
+            <tr>
+              <th>Cover</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Publish Year</th>
+              <th>Actions</th>
+            </tr>
+            <tbody>
+            </tbody>
+          </thead>
+        </table>
+      </div>
+    </div>
 
-    <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/vendor/lockr.min.js"></script>
-    <script src="js/vendor/request.js"></script>
-  </body>
+  </div>
+  <!-- /container -->
+
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/datatables.min.js"></script>
+  <script src="js/vendor/lockr.min.js"></script>
+  <script src="js/vendor/request.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
 </html>

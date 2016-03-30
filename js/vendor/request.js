@@ -40,3 +40,17 @@ function getBooks(callback) {
     }
   });
 }
+
+function getBook(bookId, callback) {
+  var settings = {
+    "url": "http://api.ws.hoangdo.info/books/" + bookId,
+    "method": "GET",
+  };
+  $.ajax(settings).done(function(response) {
+    if (response.status === 1) {
+      callback(response.data);
+    } else {
+      callback(null);
+    }
+  });
+}

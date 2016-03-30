@@ -6,3 +6,11 @@ body {
 .navbar {
   margin-bottom: 20px;
 }
+
+#loading {
+  text-align: center;
+}
+
+#books img {
+  height: 50px;
+}
