@@ -11,7 +11,7 @@
 					<div id="profile-information">
 						<div id="profile-image">
 							<p class="avt_edit trans">
-								<a class="avt_edit_icon zmbtn3 cursor" title="Update avatar" ng-click="change_avatar()">
+								<a class="avt_edit_icon zmbtn3 cursor" title="Update avatar" onclick="change_avatar()">
 									<em class="zmicn"></em>
 								</a>
 							</p>
@@ -23,7 +23,7 @@
 				</div>
 			</div>
 		</div>
-		<a title="Change background" class="editpfcover cursor" ng-click="change_background()">
+		<a title="Change background" class="editpfcover cursor" onclick="change_background()">
 			<span>Change background</span>
 			<em class="editpfcover_icn zmicn16"></em>
 		</a>
@@ -101,7 +101,7 @@
 		  	</form>
 	  	</div>
 	</div>
-
+	<input type="file" name="upload" id="fileinput" style="display:none;">
 	<script type="text/javascript" src="js/vendor/jquery.min.js"></script>
 	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/vendor/request.js"></script>
