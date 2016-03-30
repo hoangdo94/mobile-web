@@ -1,0 +1,49 @@
+<!doctype html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/auth.css">
+</head>
+<body>
+	<div class="container">
+		<div>
+			<form class="form-signin" id="login">
+		        <h2 class="form-signin-heading">Please sign in</h2>
+		        <label for="inputUsername" class="sr-only">Username</label>
+		        <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+		        <label for="inputPassword" class="sr-only">Password</label>
+		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" value="remember-me"> Remember me
+		          </label>
+		        </div>
+		        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+		        <div>Don't have an account! <a>Sign up Here</a></div>
+		        <div class="notify"></div>
+	      </form>
+		</div>
+		<div style="display:none;">
+			<form class="form-signin" id="register">
+		        <h2 class="form-signin-heading">Please sign up</h2>
+		        <label for="inputEmail" class="sr-only">Username</label>
+		        <input type="text" id="registerUsername" class="form-control" placeholder="Username" required autofocus>
+		        <label for="inputPassword" class="sr-only">Password</label>
+		        <input type="password" id="registerPassword" class="form-control" placeholder="Password" required>
+		        <label for="inputPassword" class="sr-only">Re-Password</label>
+		        <input type="password" id="repass" class="form-control" placeholder="Re-Password" required>
+		        <label for="inputPassword" class="sr-only">Email</label>
+		        <input type="email" id="registerEmail" class="form-control" placeholder="Email" required>
+		        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+		        <div>Have an account! <a>Sign in Here</a></div>
+		        <div class="notify"></div>
+	      </form>
+		</div>
+
+	</div>
+	<script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/vendor/request.js"></script>
+	<script type="text/javascript" src="js/vendor/lockr.min.js"></script>
+	<script type="text/javascript" src="js/auth.js"></script>
+</body>
+</html>
