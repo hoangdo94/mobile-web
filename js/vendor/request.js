@@ -6,13 +6,17 @@ function authenticate(credentials, callback) {
       "authorization": "Basic " + btoa(credentials.username + ':' + credentials.password),
     },
   };
-  $.ajax(settings).done(function(response) {
-    if (response.status === 1) {
-      callback(response.data);
-    } else {
-      callback(null);
-    }
-  });
+  $.ajax(settings)
+      .done(function (response) {
+        if (response.status === 1) {
+          callback(response.data, 1);
+        } else {
+          callback(null, 2);
+        }
+      })
+      .error(function (err) {
+        callback(err, 2);
+      });
 }
 
 function register(info, callback) {
@@ -20,14 +24,15 @@ function register(info, callback) {
     "url": "http://api.ws.hoangdo.info/users/",
     "method": "POST",
     "data": JSON.stringify(info),
-    "contentType": "application/json"
+    "contentType": "application/json",
   }
-
-  $.ajax(settings).done(function (response) {
-    if (response.status === 1)
-      callback(response);
-    else callback(null);
-  });
+  $.ajax(settings)
+      .done(function (response) {
+        if (response.status === 1)
+          callback(response);
+        else callback(null);
+      })
+      
 }
 
 function getUsers(callback) {

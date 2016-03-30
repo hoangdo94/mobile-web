@@ -1,0 +1,311 @@
+#setting .left-inner-addon {
+  position: relative;
+  input {
+    padding-left: 30px;
+  }
+  i {
+    position: absolute;
+    padding: 15px 12px;
+    pointer-events: none;
+  }
+}
+#setting .form-group {
+  input[type=password] {
+    color: lightgray;
+    letter-spacing: 3px;
+    font-size: 20px;
+  }
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+#setting .form-horizontal p {
+  color: gray;
+  margin-bottom: 20px;
+}
+#setting .form-horizontal .col-sm-3 img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+#setting .form-horizontal .col-sm-3 button {
+  margin-bottom: 10px;
+}
+#setting .form-group {
+	margin-left: 0!important;
+	margin-right: 0!important;
+}
+#setting .form-group input[type=password]{
+  color: lightgray;
+  letter-spacing: 3px;
+  font-size: 20px;
+}
+
+.footer .list-inline li > a{
+	color: rgb(1, 178, 134);
+}
+#setting .fa {
+	top: 1px;
+}
+a.editpfcover, a.editpfcover:hover, a.editpfcover:focus {
+  text-decoration: none;
+  outline: none;
+}
+.editpfcover {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  margin-right: 0;
+  display: block;
+  padding: 5px 8px;
+  font-size: 13px;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 3px;
+  transition: all 0.3s ease 0s;
+}
+.editpfcover span {
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font-size: 100%;
+  outline: none;
+  white-space: nowrap;
+  color: #fff;
+}
+.editpfcover .editpfcover_icn {
+  margin: 0 0 0 8px;
+  width: 20px;
+  background-position: -80px -144px;
+  height: 16px;
+  background-image: url(../images/imgsprt-1.12.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  outline: none;
+}
+.container-fluid:hover .editpfcover {
+  background-color: rgba(0,0,0,0.6);
+}
+.container-fluid:hover .editpfcover span {
+  opacity: 1;
+}
+.avt_edit {
+  border-radius: 5px;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 84px;
+  height: 84px;
+  position: absolute;
+  margin: 3px 0 0 3px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  visibility: hidden;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font-size: 100%;
+  outline: none;
+  text-align: center;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#profile-image:hover .avt_edit {
+  opacity: 1;
+  visibility: visible;
+}
+a.avt_edit_icon, a.avt_edit_icon:hover, a.avt_edit_icon:focus {
+  outline: none;
+  text-decoration: none;
+}
+.avt_edit_icon:hover, .avt_edit_icon:hover:focus {
+  background-color: #0e9e5e;
+}
+.avt_edit_icon {
+  box-sizing: content-box!important;
+  border-radius: 100%;
+  padding: 8px;
+  width: 20px;
+  height: 20px;
+  margin-top: 24px;
+  margin-left: 24px;
+  display: block;
+  border: none;
+  position: absolute;
+  line-height: normal;
+  background-color: #27b475;
+  color: #fff;
+  border-color: #27b475;
+  vertical-align: bottom;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+}
+.avt_edit_icon em {
+  background-position: -160px -224px;
+  height: 16px;
+  width: 20px;
+  background-image: url(../images/imgsprt-1.12.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  outline: none;
+  color: #fff;
+}
+#setting strong {
+  font-size:1.5em;
+}
+#setting .gen_info {
+  margin-bottom: 10px;
+}
+#setting .icon {
+  display: block;
+  position: absolute;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/imgsprt-1.12.png);
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  margin-right: 4px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  outline: none;
+  top: 3px;
+}
+
+#setting .basic {
+  background-position: -256px -128px;
+}
+#setting .contact {
+  background-position: -288px -128px;
+}
+#setting .other {
+  background-position: -256px -160px;
+}
+#setting .multiSelect > button {
+  pointer-events: none;
+  background-image: none;
+  background-color: #eeeeee;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+#setting .edit, #setting .save {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: rgb(1, 178, 134);
+  color: white;
+}
+#setting .save {
+  display: none;
+}
+#setting .form-horizontal > .col-sm-10.col-sm-offset-1 {
+  padding-top: 20px;
+  border-left: 1px solid;
+}
+#setting > .row {
+  border-bottom: 1px solid;
+}
+#setting .col-sm-10.col-sm-offset-1 > .row {
+  position: relative;
+}
+#setting .multiSelect .caret {
+  position: absolute;
+  top: 16px;
+  right: 5px;
+}
+.cursor:hover {
+  cursor: pointer;
+}
+
+#profile {
+  padding: 0;
+  margin: 0;
+  background-size: 100% 100%;
+  width: 100%;
+}
+#profile .container-narrow {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin-top: 50px;
+}
+#profile .container-narrow a {
+  color: white !important;
+  bottom: 0;
+}
+#profile-background {
+  background: url("https://placeimg.com/1000/480/nature") no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 420px;
+  filter:blur(3px);
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  // position: absolute;
+}
+#profile-information {
+  // position: absolute;
+  padding-top: 90px;
+  left: 25%;
+}
+#profile-image {
+  background: url("https://placeimg.com/90/90/people") no-repeat;
+  width: 90px;
+  height: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+#profile-name {
+  padding-top: 10px;
+  color: white;
+  font-size: 30px;
+  font-family: 'Delicious', serif;
+  text-align: center;
+}
+#profile-detail {
+  padding-top: 5px;
+  color: #E0E3DA;
+  font-size: 15px;
+  font-family: 'Tangerine', serif;
+  text-align: center;
+}
+#profile-webpage {
+  font-size: 15px;
+  font-family: 'Tangerine', serif;
+  text-align: center;
+}
+#profile-webpage a {
+  color: #566270;
+  text-decoration: none;
+}
+#followers-row,
+#following-row {
+  padding-top: 10px;
+}
+#followers-row .user-follow {
+  color: #CBCFD6;
+}

@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  if (Lockr.get('id')) {
+    $('#auth-link').toggle();
+    $('#username').text(Lockr.get('username'));
+  }
   getBooks(function(books) {
     var tableBody = $('#books tbody');
     books.forEach(function(book) {
