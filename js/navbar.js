@@ -7,4 +7,9 @@ $(document).ready(function() {
     $('#new-book').hide();
     $('#nav-user-info').hide();
   }
+  $('#sign-out').click(function() {
+    // TO-DO: remember infor or not ...
+    Lockr.flush();
+    location.reload();
+  });
 });
