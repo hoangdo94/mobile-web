@@ -15,6 +15,21 @@ function authenticate(credentials, callback) {
   });
 }
 
+function register(info, callback) {
+  var settings = {
+    "url": "http://api.ws.hoangdo.info/users/",
+    "method": "POST",
+    "data": JSON.stringify(info),
+    "contentType": "application/json"
+  }
+
+  $.ajax(settings).done(function (response) {
+    if (response.status === 1)
+      callback(response);
+    else callback(null);
+  });
+}
+
 function getUsers(callback) {
 
 }
