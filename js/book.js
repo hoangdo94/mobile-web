@@ -8,6 +8,7 @@ $(document).ready(function() {
     console.log(book);
     var coverUrl = (book.cover) ? ('http://api.ws.hoangdo.info/images/' + book.cover) : 'http://api.ws.hoangdo.info/images/default.png';
     var publishYear = (!!book.publishYear) ? book.publishYear : 'Not provided';
+    var genres = (book.genres.length > 0) ? book.genres.join(', ') : 'Not provided';
 
     $('#cover').attr('src', coverUrl).attr('alt', book.title);
     $('#title').text(book.title);
@@ -15,7 +16,7 @@ $(document).ready(function() {
     $('#modified').text(book.updatedAt);
     $('#author').text(book.author);
     $('#publish').text(publishYear);
-    $('#genres').text(book.genres.join(', '));
+    $('#genres').text(genres);
     $('#review').text(book.review);
 
     $('#book-loading').hide();
