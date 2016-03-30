@@ -35,10 +35,15 @@
           <a class="navbar-brand" href="index.html">Books Review</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <a id="new-book" class="btn btn-primary navbar-btn">
+              <i class="fa fa-plus"></i> New
+            </a>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <li id="auth-link"><a href="auth.html">Register/Login</a></li>
             <p id="nav-user-info" class="navbar-text">
-              Signed in as <a href="user.html">Mark Otto</a> (<a href="#" id="sign-out">Sign Out</a>)
+              Signed in as <a href="user.html" id="navbar-username"></a> (<a href="#" id="sign-out">Sign Out</a>)
             </p>
           </ul>
         </div>
@@ -126,6 +131,7 @@
   <script src="js/vendor/bootstrap.min.js"></script>
   <script src="js/vendor/lockr.min.js"></script>
   <script src="js/vendor/request.js"></script>
+  <script src="js/navbar.js"></script>
   <script src="js/book.js"></script>
 </body>
 
