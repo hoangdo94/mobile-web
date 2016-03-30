@@ -7,7 +7,7 @@ body {
   margin-bottom: 20px;
 }
 
-#loading {
+.loading {
   text-align: center;
 }
 

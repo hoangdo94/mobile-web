@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile Web</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Books Review</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li id="auth-link"><a href="auth.html">Register/Login</a></li>
+            <p id="nav-user-info" class="navbar-text">
+              Signed in as <a href="user.html">Mark Otto</a> (<a href="#" id="sign-out">Sign Out</a>)
+            </p>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+      <!--/.container-fluid -->
+    </nav>
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Book Details
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="loading" id="book-loading">
+          <i class="fa fa-spinner fa-pulse"></i> Loading
+        </div>
+        <div id="details" style="display: none;">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="thumbnail">
+                <img id="cover" src="" alt="" width="100%"/>
+              </div>
+            </diV>
+            <div class="col-md-9">
+              <h2 id="title"></h2>
+              <p>
+                <em>Posted by <b id="user"></b> on <b id="created"></b>. Last modified on <b id="modified"></b></em>
+              </p>
+              <hr />
+              <div class="row">
+                <div class="col-md-3 text-right">
+                  <b>Author</b>
+                </div>
+                <div class="col-md-9">
+                  <span id="author"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 text-right">
+                  <b>Publish year</b>
+                </div>
+                <div class="col-md-9">
+                  <span id="publish"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 text-right">
+                  <b>Genres</b>
+                </div>
+                <div class="col-md-9">
+                  <span id="genres"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 text-right">
+                  <b>Review</b>
+                </div>
+                <div class="col-md-9">
+                  <span id="review"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <button class="btn btn-primary"><i class="fa fa-pencil"></i> Edit Information</button>
+        <button class="btn btn-danger"><i class="fa fa-trash"></i> Delete this Book</button>
+      </div>
+    </div>
+
+  </div>
+  <!-- /container -->
+
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/lockr.min.js"></script>
+  <script src="js/vendor/request.js"></script>
+  <script src="js/book.js"></script>
+</body>
+
+</html>
