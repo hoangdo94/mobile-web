@@ -19,7 +19,7 @@ $(document).ready(function() {
     $('#author').text(book.author);
     $('#publish').text(publishYear);
     $('#genres').text(genres);
-    $('#review').text(book.review);
+    $('#review').html(book.review);
 
     getUser(book.userId, function(user) {
       $('#user').text(user.name || user.username);
