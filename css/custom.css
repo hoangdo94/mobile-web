@@ -29,3 +29,9 @@ table{
   table-layout: fixed;
   word-wrap:break-word;
 }
+
+#map {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}

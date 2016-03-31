@@ -95,7 +95,7 @@ $(document).ready(function() {
   });
 
   //event
-  $('.edit').click(function() {
+  $('#edit').click(function() {
     $('#myModalNorm').modal('show');
     $('#upUsername').val($('#username').val());
     $('#upName').val($('#name').val());
@@ -194,8 +194,8 @@ $(document).ready(function() {
   });
   $('img').load(function() {
     $('.avt_edit').css({
-      'top': 0,
-      'left': $('img').css('marginLeft'),
+      'top': 4,
+      'left': $('img').css('marginLeft') + 4,
       'width': $('img').width() - 6 + 'px',
       'height': $('img').height() - 6 + 'px'
     });
