@@ -38,6 +38,7 @@ $(document).ready(function() {
               .show();
             $('#new-review').find('input, textarea').val('');
             $('#new-review input, #new-review textarea').attr('disabled', false);
+            $('#review').summernote('code','');
             setTimeout(function() {
               $('.notify').hide();
             }, 3000);
@@ -73,6 +74,7 @@ $(document).ready(function() {
           .show();
         $('#new-review').find('input, textarea').val('');
         $('#new-review input, #new-review textarea').attr('disabled', false);
+        $('#review').summernote('code','');
         setTimeout(function() {
           $('.notify').hide();
         }, 3000);
