@@ -41,7 +41,7 @@
 		  					</div>
 		  				</div>
 		  			</div>
-		  			
+
 		  			<div class="col-sm-4">
 		  				<div class="panel panel-default">
 		  					<div class="panel-heading">2 - Get User Info</div>
@@ -89,6 +89,56 @@
 		  				</div>
 		  			</div>
 		  		</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="panel panel-default">
+								<div class="panel-heading">4 - List all Users</div>
+								<div class="panel-body">
+									Definition: List all Users
+								</div>
+								<div class="panel-body">
+									Method: GET
+								</div>
+								<div class="panel-body">
+									URL: <a href="">http://api.ws.hoangdo.info/</a>
+								</div>
+								<div class="panel-body">
+									Data: none
+								</div>
+								<div class="panel-body">
+									Require: <i>Authorization</i> header of admin account
+								</div>
+								<div class="panel-body">
+									Response: status = <b>1</b> and user list if success, <b>0</b> if error
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="panel panel-default">
+								<div class="panel-heading">5 - Delete user</div>
+								<div class="panel-body">
+									Definition: Delete a user
+								</div>
+								<div class="panel-body">
+									Method: DELETE
+								</div>
+								<div class="panel-body">
+									URL: <a href="">http://api.ws.hoangdo.info/users/<b><i>userId</b></i></a>
+								</div>
+								<div class="panel-body">
+									Data: none
+								</div>
+								<div class="panel-body">
+									Require: <b><i>userId</b></i>, <i>Authorization</i> header of admin account
+								</div>
+								<div class="panel-body">
+									Response: status = <b>1</b> if success, <b>0</b> if error
+								</div>
+							</div>
+						</div>
+					</div>
+
 		  	</div>
 		</div>
 		<div class="panel panel-info">
@@ -116,14 +166,14 @@
 		  						Require: <i>Authorization</i> header
 		  					</div>
 		  					<div class="panel-body">
-		  						Response: status = <b>1</b> and user info if success, <b>0</b> if error
+		  						Response: status = <b>1</b> and corresponding user info if success, <b>0</b> if error
 		  					</div>
 		  				</div>
 		  			</div>
 		  		</div>
 		  	</div>
 		</div>
-		
+
 		<div class="panel panel-success">
 			<div class="panel-heading">
 				<h3 class="panel-title">Book</h3>
@@ -217,7 +267,7 @@
 	  						 	Data: book info (title, author, cover, publishYear, genres, review)
 		  					</div>
 		  					<div class="panel-body">
-		  						Require: <b><i>bookId</b></i>, <i>Authorization</i> header
+		  						Require: <b><i>bookId</b></i>, <i>Authorization</i> header of the user who added the book, or admin
 		  					</div>
 		  					<div class="panel-body">
 		  						Response: status = <b>1</b> if success, <b>0</b> if error
@@ -240,7 +290,7 @@
 	  						 	Data: none
 		  					</div>
 		  					<div class="panel-body">
-		  						Require: <i>Authorization</i> header
+		  						Require: <i>Authorization</i> header of the user who added the book, or admin
 		  					</div>
 		  					<div class="panel-body">
 		  						Response: status = <b>1</b> if success, <b>0</b> if error
