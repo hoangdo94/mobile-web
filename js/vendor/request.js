@@ -25,13 +25,13 @@ function register(info, callback) {
     "method": "POST",
     "data": JSON.stringify(info),
     "contentType": "application/json",
-  }
+  };
   $.ajax(settings)
       .done(function (response) {
         if (response.status === 1)
           callback(response);
         else callback(null);
-      })
+      });
 
 }
 
@@ -63,12 +63,12 @@ function updateInfo(userId, header, newInfo, callback) {
     },
     contentType: "application/json",
     success: function (res) {
-      callback(res, 1)
+      callback(res, 1);
     },
     error: function(res) {
-      callback(res, 2)
+      callback(res, 2);
     }
-  })
+  });
 }
 
 function getBooks(callback) {
@@ -96,6 +96,22 @@ function getBook(bookId, callback) {
     } else {
       callback(null);
     }
+  });
+}
+
+function deleteBook(bookId, callback) {
+  console.log(Lockr.get('authorizationHeader'));
+  var settings = {
+    "url": "http://api.ws.hoangdo.info/books/" + bookId,
+    "method": "DELETE",
+    headers: {
+      "Authorization": Lockr.get('authorizationHeader'),
+    }
+  };
+  $.ajax(settings).done(function(response) {
+      callback(response.message);
+  }, function(error) {
+    callback(error.message);
   });
 }
 
