@@ -7,16 +7,16 @@ function authenticate(credentials, callback) {
     },
   };
   $.ajax(settings)
-      .done(function (response) {
-        if (response.status === 1) {
-          callback(response.data, 1);
-        } else {
-          callback(null, 2);
-        }
-      })
-      .error(function (err) {
-        callback(err, 2);
-      });
+    .done(function(response) {
+      if (response.status === 1) {
+        callback(response.data, 1);
+      } else {
+        callback(null, 2);
+      }
+    })
+    .error(function(err) {
+      callback(err, 2);
+    });
 }
 
 function register(info, callback) {
@@ -27,11 +27,11 @@ function register(info, callback) {
     "contentType": "application/json",
   };
   $.ajax(settings)
-      .done(function (response) {
-        if (response.status === 1)
-          callback(response);
-        else callback(null);
-      });
+    .done(function(response) {
+      if (response.status === 1)
+        callback(response);
+      else callback(null);
+    });
 
 }
 
@@ -62,7 +62,7 @@ function updateInfo(userId, header, newInfo, callback) {
       "Authorization": header,
     },
     contentType: "application/json",
-    success: function (res) {
+    success: function(res) {
       callback(res, 1);
     },
     error: function(res) {
@@ -110,7 +110,7 @@ function addBook(data, callback) {
     contentType: "application/json"
   };
   $.ajax(settings).done(function(response) {
-      callback(response.message);
+    callback(response.message);
   }, function(error) {
     callback(error.message);
   });
@@ -127,7 +127,7 @@ function updateBook(data, bookId, callback) {
     contentType: "application/json"
   };
   $.ajax(settings).done(function(response) {
-      callback(response.message);
+    callback(response.message);
   }, function(error) {
     callback(error.message);
   });
@@ -142,22 +142,22 @@ function deleteBook(bookId, callback) {
     }
   };
   $.ajax(settings).done(function(response) {
-      callback(response.message);
+    callback(response.message);
   }, function(error) {
     callback(error.message);
   });
 }
 
 function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable) {
-            return decodeURIComponent(pair[1]);
-        }
+  var query = window.location.search.substring(1);
+  var vars = query.split('&');
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split('=');
+    if (decodeURIComponent(pair[0]) == variable) {
+      return decodeURIComponent(pair[1]);
     }
-    return null;
+  }
+  return null;
 }
 
 function isSignedIn() {

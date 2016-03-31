@@ -4,25 +4,12 @@ $(document).ready(function() {
     $('.panel').hide();
     $('.container').append('<h1 style="text-align: center">Wrong Request!</h1>');
   }
-  var newBook;
+  $('#upReview').summernote({
+    height: 300
+  });
   var file;
-  function updateContent(book){
-    var coverUrl = (book.cover) ? ('http://api.ws.hoangdo.info/images/' + book.cover) : 'http://api.ws.hoangdo.info/images/default.png';
-    var publishYear = (!!book.publishYear) ? book.publishYear : 'Not provided';
-    var genres = (book.genres.length > 0) ? book.genres.join(', ') : 'Not provided';
-
-    $('#cover').attr('src', coverUrl).attr('alt', book.title);
-    $('#title').text(book.title);
-    $('#created').text((new Date(book.createdAt)).toLocaleString());
-    $('#modified').text((new Date(book.updatedAt)).toLocaleString());
-    $('#author').text(book.author);
-    $('#publish').text(publishYear);
-    $('#genres').text(genres);
-    $('#review').html(book.review);
-  }
   // Fetch data
   getBook(bookId, function(book){
-    newBook = book
     console.log(book);
     var coverUrl = (book.cover) ? ('http://api.ws.hoangdo.info/images/' + book.cover) : 'http://api.ws.hoangdo.info/images/default.png';
     var publishYear = (!!book.publishYear) ? book.publishYear : 'Not provided';
@@ -36,6 +23,12 @@ $(document).ready(function() {
     $('#publish').text(publishYear);
     $('#genres').text(genres);
     $('#review').html(book.review);
+
+    $('#upTitle').val(book.title);
+    $('#upAuthor').val(book.author);
+    $('#upYear').val(book.publishYear);
+    $('#upGenres').val(book.genres.join(', '));
+    $('#upReview').summernote('code', book.review);
 
     getUser(book.userId, function(user) {
       $('#user').text(user.name || user.username);
@@ -56,17 +49,12 @@ $(document).ready(function() {
     if (confirm('Are you sure? You will not be able to recover this book.')) {
       deleteBook(bookId, function(result) {
         alert(result.toUpperCase());
+        if (result === 'deleted') {
+          // redirect to homepage
+          window.location.href = window.location.pathname.replace("book.html", "index.html");
+        }
       });
     }
-  });
-
-  $('#edit-book').click(function(){
-    $('#myModalNorm').modal('show');
-    $('#upTitle').val(newBook.title);
-    $('#upAuthor').val(newBook.author);
-    $('#upYear').val(newBook.publishYear);
-    $('#genres').val((newBook.genres.length > 0) ? newBook.genres.join(', ') : '');
-    $('#review').val(newBook.review);
   });
 
   $('input[type=file]').change(function (){
@@ -81,8 +69,10 @@ $(document).ready(function() {
       title: $('#upTitle').val(),
       author: $('#upAuthor').val(),
       publishYear: $('#upYear').val(),
-      genres: $('#upGenres').val(),
-      review: $('#upReview').val()
+      genres: $('#upGenres').val().split(',').map(function(g) {
+        return g.trim();
+      }),
+      review: $('#upReview').summernote('code')
     };
     if (file) {
       //post file first
@@ -94,28 +84,10 @@ $(document).ready(function() {
             success: function (result) {
               var url = result.data.url;
               book.cover = url;
-              updateBook(book, newBook._id, function(result){
-                $('.loading').hide();
-                if (result == 'updated'){
-                  $('.notify').text('Update Successful')
-                      .css('color', 'green')
-                      .show();
-                  updateContent(book);
-                }
-                else 
-                  $('.notify').text('Update Failed')
-                      .css('color', 'red')
-                      .show();
-                $('#updateForm input, #updateForm textarea').attr('disabled', false);
-                setTimeout(function(){
-                  $('.notify').hide();
-                }, 3000);
-              })
+              doUpdate(book);
             },
             error: function (res) {
-              $('.notify').text('Update Failed')
-                    .css('color', 'red')
-                    .show();
+              $('.notify').text('Cannot upload the Cover. Please try again').css('color', 'red').show();
               $('.loading').hide();
               $('#updateForm input, #updateForm textarea').attr('disabled', false);
               setTimeout(function(){
@@ -129,24 +101,26 @@ $(document).ready(function() {
             mimeType: "multipart/form-data",
         });
     } else {
-      updateBook(book, newBook._id, function(result){
-        $('.loading').hide();
-            if (result == 'updated'){
-              $('.notify').text('Update Successful')
-                  .css('color', 'green')
-                  .show();
-              book.cover = newBook.cover;
-              updateContent(book);
-            }
-            else 
-              $('.notify').text('Update Failed')
-                  .css('color', 'red')
-                  .show();
-            $('#updateForm input, #updateForm textarea').attr('disabled', false);
-            setTimeout(function(){
-              $('.notify').hide();
-            }, 3000);
-      })
+      doUpdate(book);
     }
-  })
+  });
+
+  function doUpdate(book) {
+    updateBook(book, bookId, function(result){
+      $('.loading').hide();
+      if (result == 'updated'){
+        $('.notify').text('Update Successful').css('color', 'green').show();
+        setTimeout(function(){
+          location.reload();
+        }, 500);
+      } else {
+        $('.notify').text('Failed to Update. Please try again.').css('color', 'red').show();
+        setTimeout(function(){
+          $('.notify').hide();
+        }, 3000);
+      }
+      $('#updateForm input, #updateForm textarea').attr('disabled', false);
+
+    });
+  }
 });
