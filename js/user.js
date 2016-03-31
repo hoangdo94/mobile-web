@@ -1,9 +1,4 @@
 $(document).ready(function() {
-	$(window).load(function(){
-		console.log(1);
-		$(this).css('height', $(this).parent().parent().height() + 'px');
-	});
-
 	$(window).resize(function() {
 		$('.avt_edit').css({'top': 0, 'left': $('img').css('marginLeft'), 'width': $('img').width() - 6 + 'px', 'height': $('img').height() - 6 + 'px'});
 		// $('.avt_edit_icon').css({'left': $('.avt_edit').width()/2 - $('.avt_edit_icon').outerWidth()/2 + 'px', 'top': $('.avt_edit').height()/2 - $('.avt_edit_icon').outerHeight()/2 + 'px'});

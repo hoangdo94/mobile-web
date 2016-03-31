@@ -11,6 +11,7 @@ $(document).ready(function() {
       $('.notify').text('* Password and re-password do not match!');
       return false;
     }
+    $('.loading').toggle();
     var info = {
       username: $('#registerUsername').val(),
       password: $('#registerPassword').val(),
@@ -26,11 +27,13 @@ $(document).ready(function() {
         $('.container > div:first-child').toggle();
         $('.container > div:nth-child(2)').toggle();
       }
+      $('.loading').toggle();
     });
   });
 
   $('#login').submit(function(e) {
     e.preventDefault();
+    $('.loading').toggle();
     var info = {
       username: $('#inputUsername').val(),
       password: $('#inputPassword').val()
@@ -44,6 +47,7 @@ $(document).ready(function() {
       } else {
         $('#login .notify').text('* Failed!');
       }
+      $('.loading').toggle();
     });
   });
 });
