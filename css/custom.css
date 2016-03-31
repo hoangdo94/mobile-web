@@ -11,6 +11,21 @@ body {
   text-align: center;
 }
 
+#books tr > th:first-child {
+  width: 100px !important;
+}
+#books tr > td:first-child {
+  width: 100px !important;
+}
+
 #books img {
   height: 50px;
+}
+
+table{
+  margin: 0 auto;
+  clear: both;
+  border-collapse: collapse;
+  table-layout: fixed;
+  word-wrap:break-word;
 }
