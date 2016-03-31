@@ -54,80 +54,78 @@
 	</div>
 	<div class="container">
 		<div id="setting">
-			<div class="row">
-				<div class="col-sm-10">
-					<h2 style="font-weight:bold;">Information</h2>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">User Information</h3>
 				</div>
-				<div class="col-sm-2">
-					<button class="edit btn" ng-click="edit()"><i class="fa fa-pencil-square-o"></i> Edit</button>
-
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-
-				<div class="col-sm-4" style=" padding-top: 20px; border-right: 1px solid;">
-					<div class="row" style="text-align: center;">
-						<strong>Avatar</strong>
+				<div class="panel-body">
+					<div id="notify" style="display:none"></div>
+					<div class="loading" id="books-loading" style="display:none">
+						<i class="fa fa-spinner fa-pulse fa-2x"></i>
 					</div>
-					<div class="ava">
-						<img class="img-responsive center-block">
-						<p class="avt_edit trans"></p>
-						<a class="avt_edit_icon zmbtn3 cursor" title="Update avatar">
-							<em class="zmicn"></em>
-						</a>
-					</div>
-				</div>
-				<form class="form-horizontal" role="form">
-					<div class="col-sm-8" id="form-container">
-						<div class="row">
-							<span class="basic icon"></span>
-							<div class="col-sm-11 col-sm-offset-1">
-								<strong>Basic Infomation:</strong>
-								<div class="form-group" style="margin-top:10px;">
-									<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Username</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" id="username" readonly required>
+					<div class="row">
+						<div class="col-sm-3">
+							<strong>Avatar</strong>
+							<div class="ava thumbnail">
+								<img class="img-responsive center-block">
+								<p class="avt_edit trans"></p>
+								<a class="avt_edit_icon zmbtn3 cursor" title="Update avatar">
+									<em class="zmicn"></em>
+								</a>
+							</div>
+						</div>
+						<form class="form-horizontal" role="form">
+							<div class="col-sm-9" id="form-container">
+								<div class="row">
+									<div class="col-sm-12">
+										<strong>Basic Infomation</strong>
+										<div class="form-group" style="margin-top:10px;">
+											<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Username</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" id="username" readonly required>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Name</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" id="name" readonly required>
+											</div>
+										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Name</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" id="name" readonly required>
+								<div class="row">
+									<div class="col-sm-12">
+										<strong>Contact Infomation</strong>
+										<div class="form-group" style="margin-top:10px;">
+											<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Email</label>
+											<div class="col-sm-10">
+												<input type="email" class="form-control" id="email" readonly required>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<strong>Location</strong>
+										<br/>
+										<label for="track" style="color: red; margin-bottom: 10px;">
+											<input id="track" type="checkbox" /> Track Location
+										</label>
+										<div id="info"></div>
+										<div id="map" style="width: 100%;"></div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<span class="contact icon"></span>
-							<div class="col-sm-11 col-sm-offset-1">
-								<strong>Contact Infomation:</strong>
-								<div class="form-group" style="margin-top:10px;">
-									<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Email</label>
-									<div class="col-sm-10">
-										<input type="email" class="form-control" id="email" readonly required>
-									</div>
-								</div>
-							</div>
-						</div>
-
+						</form>
 					</div>
-				</form>
+				</div>
+				<div class="panel-footer">
+					<button id="edit" class="btn btn-success btn-sm pull-right">
+						<i class="fa fa-pencil-square-o"></i> Edit
+					</button>
+					<div style="clear:both"></div>
+				</div>
 			</div>
-			<div id="notify">test</div>
-			<div class="loading" id="books-loading">
-				<i class="fa fa-spinner fa-pulse fa-2x"></i>
-			</div>
-			<hr>
-		</div>
-
-		<div class="row">
-			<h2 style="font-weight: bold;">Location</h2>
-			<label for="track" style="color: red; margin-bottom: 10px;">
-				<input id="track" type="checkbox" /> *Track position
-			</label>
-			<div id="info" style="display: none;"></div>
-			<div id="map" style="width: 100%;"></div>
 		</div>
 	</div>
 	<input type="file" name="upload" id="fileinput" style="display:none;" accept="image/*">
