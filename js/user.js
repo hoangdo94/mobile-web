@@ -1,4 +1,9 @@
 $(document).ready(function() {
+	$(window).load(function(){
+		console.log(1);
+		$(this).css('height', $(this).parent().parent().height() + 'px');
+	});
+
 	$(window).resize(function() {
 		$('.avt_edit').css({'top': 0, 'left': $('img').css('marginLeft'), 'width': $('img').width() - 6 + 'px', 'height': $('img').height() - 6 + 'px'});
 		// $('.avt_edit_icon').css({'left': $('.avt_edit').width()/2 - $('.avt_edit_icon').outerWidth()/2 + 'px', 'top': $('.avt_edit').height()/2 - $('.avt_edit_icon').outerHeight()/2 + 'px'});
@@ -82,13 +87,51 @@ $(document).ready(function() {
 
   	//event
   	$('.edit').click(function(){
-		$('input').each(function(){
-			$(this).attr('readonly', false);
-		});
-		$('input[type=password]').parent().parent().toggle();
-		$('.save').toggle();
-		$('.edit').toggle();
+		$('#myModalNorm').modal('show');
 	});
+	$('#updateForm').submit(function(e){
+		e.preventDefault();
+		if ($('#upPassword').val() != $('#upRe-password').val()) {
+			$('.notify').text('Password and Re-pass do not match!')
+					.toggle();
+			setTimeout(function(){
+				$('.notify').toggle();
+			}, 3000)
+			return false;
+		}
+		$('.loading').toggle();
+		var newInfo = {
+			username: $('#upUsername').val(),
+			password: $('#upPassword').val(),
+			name: $('#upName').val(),
+			email: $('#upEmail').val()
+		}
+		updateInfo(user._id, auth, newInfo, function(res, status){
+			$('.loading').toggle();
+			if (status === 1){
+				user.username = newInfo.username;
+				user.password = newInfo.password;
+				username.name = newInfo.name;
+				username.email = newInfo.email;
+				Lockr.set('user', user);
+				Lockr.set('authorizationHeader', "Basic " + btoa(user.username+":"+user.password));
+				$('#updateForm')[0].reset();
+				$('#myModalNorm').modal('hide');
+				$('#notify').text('Update successful')
+						.css({'color': 'green', 'font-weight': 'bold'})
+						.toggle();
+			} else {
+				$('#updateForm')[0].reset();
+				$('#myModalNorm').modal('hide');
+				$('#notify').text('Update failed')
+						.css({'color': 'red', 'font-weight': 'bold'})
+						.toggle();
+			}
+			setTimeout(function(){
+				$('#notify').toggle();
+			}, 3000)
+		})
+	})
 	$('.save').click(function(){
 		if ($('.form-horizontal > button').click(function(e){e.preventDefault();}).context.activeElement.validationMessage)
 			return false;
@@ -108,16 +151,13 @@ $(document).ready(function() {
 				$('.save').toggle();
 				$('.edit').toggle();
 				$('input[type=password]').parent().parent().toggle();
-				$('#notify').text('Update successfully')
-						.attr('color', 'green')
-						.attr('font-weight', 'bold')
+				$('#notify').text('Update successful')
+						.css({'color': 'green', 'font-weight': 'bold'})
 						.toggle();
-						console.log(res);
 			} else {
 				$('#notify').text('Update failed')
 						.css({'color': 'red', 'font-weight': 'bold'})
 						.toggle();
-						console.log(res);
 			}
 			setTimeout(function(){
 				$('#notify').toggle();
@@ -135,7 +175,20 @@ $(document).ready(function() {
 	        url: 'http://api.ws.hoangdo.info/upload',
 	        type: 'POST',
 	        success: function (result) {
-	        	//TO-DO   post update to server
+	        	var url = result.data.url
+	        	updateInfo(user._id, auth, {avatar: url}, function(result){
+	        		user.avatar = url;
+	        		if (result.status == 1) {
+	        			Lockr.set('user', user);
+	        		} else {
+	        			$('#notify').text('Failed')
+							.css({'color': 'red', 'font-weight': 'bold'})
+							.toggle();
+						setTimeout(function(){
+							$('#notify').toggle();
+						}, 3000)
+	        		}
+	        	})
 	        	$('img').attr('src', 'http://api.ws.hoangdo.info/images/' + result.data.url);
 	        	$('.loading').toggle();
 	        },
