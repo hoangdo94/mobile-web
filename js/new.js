@@ -2,11 +2,12 @@ $(document).ready(function() {
 	var file;
 	$('#new-review').submit(function(e){
 		e.preventDefault();
+		$('#new-review input, #new-review textarea').attr('disabled', true);
 		$('.loading').show();
 		var book = {
 			title: $('#title').val(),
 			author: $('#author').val(),
-			year: $('#year').val(),
+			publishYear: $('#year').val(),
 			genres: $('#genres').val(),
 			review: $('#review').val()
 		};
@@ -30,7 +31,8 @@ $(document).ready(function() {
 		        			$('.notify').text('Create Failed')
 		        					.css('color', 'red')
 		        					.show();
-		        		$('#new-review')[0].reset();
+		        		$('#new-review').find('input, textarea').val('');
+		        		$('#new-review input, #new-review textarea').attr('disabled', false);
 		        		setTimeout(function(){
 							$('.notify').hide();
 						}, 3000);
@@ -41,7 +43,8 @@ $(document).ready(function() {
 	        					.css('color', 'red')
 	        					.show();
 	        		$('.loading').hide();
-	        		$('#new-review')[0].reset();
+	        		$('#new-review').find('input, textarea').val('');
+	        		$('#new-review input, #new-review textarea').attr('disabled', false);
 	        		setTimeout(function(){
 						$('.notify').hide();
 					}, 3000);
@@ -55,7 +58,6 @@ $(document).ready(function() {
 		} else {
 			addBook(book, function(result){
 				$('.loading').hide();
-				console.log($('.loading'));
         		if (result == 'created')
         			$('.notify').text('Create Successful')
         					.css('color', 'green')
@@ -64,7 +66,8 @@ $(document).ready(function() {
         			$('.notify').text('Create Failed')
         					.css('color', 'red')
         					.show();
-        		$('#new-review')[0].reset();
+        		$('#new-review').find('input, textarea').val('');
+        		$('#new-review input, #new-review textarea').attr('disabled', false);
         		setTimeout(function(){
 					$('.notify').hide();
 				}, 3000);
@@ -76,6 +79,6 @@ $(document).ready(function() {
 		file = this.files[0];
 	});
 	$('#reset').click(function(){
-		$('#new-review')[0].reset();
+		$('#new-review').find('input, textarea').val('');
 	})
 })

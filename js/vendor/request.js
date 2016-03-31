@@ -116,6 +116,23 @@ function addBook(data, callback) {
   });
 }
 
+function updateBook(data, bookId, callback) {
+  var settings = {
+    "url": "http://api.ws.hoangdo.info/books/" + bookId,
+    "method": "PUT",
+    data: JSON.stringify(data),
+    headers: {
+      "Authorization": Lockr.get('authorizationHeader'),
+    },
+    contentType: "application/json"
+  };
+  $.ajax(settings).done(function(response) {
+      callback(response.message);
+  }, function(error) {
+    callback(error.message);
+  });
+}
+
 function deleteBook(bookId, callback) {
   var settings = {
     "url": "http://api.ws.hoangdo.info/books/" + bookId,
