@@ -6,11 +6,14 @@ $(document).ready(function() {
 
 	var user = Lockr.get('user');
 	var auth = Lockr.get('authorizationHeader');
-	$('#username').val(user.username);
-	$('#name').val(user.name);
-	$('#email').val(user.email);
-	$('img').attr('src', 'http://api.ws.hoangdo.info/images/' + user.avatar);
-
+	
+	function updateContent(newUser){
+		$('#username').val(newUser.username);
+		$('#name').val(newUser.name);
+		$('#email').val(newUser.email);
+		$('img').attr('src', 'http://api.ws.hoangdo.info/images/' + newUser.avatar).attr('alt', 'Avatar');
+	}
+	updateContent(user);
 	//handle map
 	var view = new ol.View({
         center: ol.proj.fromLonLat([106.65861679999999, 10.7642177]),
@@ -83,6 +86,9 @@ $(document).ready(function() {
   	//event
   	$('.edit').click(function(){
 		$('#myModalNorm').modal('show');
+		$('#upUsername').val($('#username').val());
+		$('#upName').val($('#name').val());
+		$('#upEmail').val($('#email').val());
 	});
 	$('#updateForm').submit(function(e){
 		e.preventDefault();
@@ -105,18 +111,16 @@ $(document).ready(function() {
 			$('.loading').toggle();
 			if (status === 1){
 				user.username = newInfo.username;
-				user.password = newInfo.password;
-				username.name = newInfo.name;
-				username.email = newInfo.email;
+				user.name = newInfo.name;
+				user.email = newInfo.email;
 				Lockr.set('user', user);
-				Lockr.set('authorizationHeader', "Basic " + btoa(user.username+":"+user.password));
-				$('#updateForm')[0].reset();
+				Lockr.set('authorizationHeader', "Basic " + btoa(newInfo.username+":"+newInfo.password));
 				$('#myModalNorm').modal('hide');
 				$('#notify').text('Update successful')
 						.css({'color': 'green', 'font-weight': 'bold'})
 						.toggle();
+				updateContent(user);
 			} else {
-				$('#updateForm')[0].reset();
 				$('#myModalNorm').modal('hide');
 				$('#notify').text('Update failed')
 						.css({'color': 'red', 'font-weight': 'bold'})
@@ -127,38 +131,7 @@ $(document).ready(function() {
 			}, 3000)
 		})
 	})
-	$('.save').click(function(){
-		if ($('.form-horizontal > button').click(function(e){e.preventDefault();}).context.activeElement.validationMessage)
-			return false;
-		$('.loading').toggle();
-		var newInfo = {
-			username: $('#username').val(),
-			password: $('#password').val(),
-			name: $('#name').val(),
-			email: $('#email').val()
-		}
-		updateInfo(user._id, auth, newInfo, function(res, status){
-			$('.loading').toggle();
-			if (status === 1){
-				$('input').each(function(){
-					$(this).attr('readonly', true);
-				});
-				$('.save').toggle();
-				$('.edit').toggle();
-				$('input[type=password]').parent().parent().toggle();
-				$('#notify').text('Update successful')
-						.css({'color': 'green', 'font-weight': 'bold'})
-						.toggle();
-			} else {
-				$('#notify').text('Update failed')
-						.css({'color': 'red', 'font-weight': 'bold'})
-						.toggle();
-			}
-			setTimeout(function(){
-				$('#notify').toggle();
-			}, 3000)
-		})
-	});
+	
 	$('.avt_edit_icon').click(function(){
 		$('#fileinput').click();
 	});
