@@ -1,0 +1,274 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>API</title>
+
+  	<link href="css/bootstrap.min.css" rel="stylesheet">
+  	<link href="css/font-awesome.min.css" rel="stylesheet">
+  	<link href="css/doc.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1 style="text-align: center;">WEB MOBILE API</h1>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">User</h3>
+			</div>
+		  	<div class="panel-body">
+		  		<div class="row">
+		  			<div class="col-sm-4">
+		  				<div class="panel panel-default">
+		  					<div class="panel-heading">1 - Register</div>
+		  					<div class="panel-body">
+		  						Definition: user register
+		  					</div>
+		  					<div class="panel-body">
+		  						Method: POST
+		  					</div>
+		  					<div class="panel-body">
+		  						URL: <a href="">http://api.ws.hoangdo.info/users/</a>
+		  					</div>
+		  					<div class="panel-body">
+	  						 	Data: {username, password, email}
+		  					</div>
+		  					<div class="panel-body">
+		  						Require: none
+		  					</div>
+		  					<div class="panel-body">
+		  						Response: status = <b>1</b> if success, <b>0</b> if error
+		  					</div>
+		  				</div>
+		  			</div>
+		  			<div class="col-sm-4">
+		  				<div class="panel panel-default">
+		  					<div class="panel-heading">2 - Authenticate</div>
+		  					<div class="panel-body">
+		  						Definition: user login
+		  					</div>
+		  					<div class="panel-body">
+		  						Method: POST
+		  					</div>
+		  					<div class="panel-body">
+		  						URL: <a href="">http://api.ws.hoangdo.info/auth/</a>
+		  					</div>
+		  					<div class="panel-body">
+	  						 	Data: {username, password}
+		  					</div>
+		  					<div class="panel-body">
+		  						Require: <i>Authorization</i> header
+		  					</div>
+		  					<div class="panel-body">
+		  						Response: status = <b>1</b> if success, <b>0</b> if error
+		  					</div>
+		  				</div>
+		  			</div>
+		  			<div class="col-sm-4">
+		  				<div class="panel panel-default">
+		  					<div class="panel-heading">3 - Get User Info</div>
+		  					<div class="panel-body">
+		  						Definition: get user information (except password)
+		  					</div>
+		  					<div class="panel-body">
+		  						Method: GET
+		  					</div>
+		  					<div class="panel-body">
+		  						URL: <a href="">http://api.ws.hoangdo.info/users/<b><i>userId</b></i></a>
+		  					</div>
+		  					<div class="panel-body">
+	  						 	Data: none
+		  					</div>
+		  					<div class="panel-body">
+		  						Require: <b><i>userId</b></i>
+		  					</div>
+		  					<div class="panel-body">
+		  						Response: status = <b>1</b> and user info if success, <b>0</b> if error
+		  					</div>
+		  				</div>
+		  			</div>
+		  			<div class="col-sm-4">
+		  				<div class="panel panel-default">
+		  					<div class="panel-heading">4 - Update User Info</div>
+		  					<div class="panel-body">
+		  						Definition: update user information
+		  					</div>
+		  					<div class="panel-body">
+		  						Method: PUT
+		  					</div>
+		  					<div class="panel-body">
+		  						URL: <a href="">http://api.ws.hoangdo.info/users/<b><i>userId</b></i></a>
+		  					</div>
+		  					<div class="panel-body">
+	  						 	Data: {username, password, email, name, avatar}
+		  					</div>
+		  					<div class="panel-body">
+		  						Require: <b><i>userId</b></i>, <i>Authorization</i> header
+		  					</div>
+		  					<div class="panel-body">
+		  						Response: status = <b>1</b> if success, <b>0</b> if error
+		  					</div>
+		  				</div>
+		  			</div>
+		  		</div>
+		  	</div>
+		</div>
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">Book</h3>
+			</div>
+		  	<div class="panel-body">
+		  		<div class="row">
+		  			<div class="col-sm-4">
+		  				<div class="panel panel-default">
+		  					<div class="panel-heading">1 - Get All Books</div>
+		  					<div class="panel-body">
+		  						Definition: get all books
+		  					</div>
+		  					<div class="panel-body">
+		  						Method: GET
+		  					</div>
+		  					<div class="panel-body">
+		  						URL: <a href="">http://api.ws.hoangdo.info/books/</a>
+		  					</div>
+		  					<div class="panel-body">
+	  						 	Data: none
+		  					</div>
+		  					<div class="panel-body">
+		  						Require: none
+		  					</div>
+		  					<div class="panel-body">
+		  						Response: status = <b>1</b> and list of book if success, <b>0</b> if error
+		  					</div>
+		  				</div>
+		  			</div>
+		  			<div class="col-sm-4">
+		  				<div class="panel panel-default">
+		  					<div class="panel-heading">2 - Get A Book</div>
+		  					<div class="panel-body">
+		  						Definition: get a book
+		  					</div>
+		  					<div class="panel-body">
+		  						Method: GET
+		  					</div>
+		  					<div class="panel-body">
+		  						URL: <a href="">http://api.ws.hoangdo.info/books/<b><i>bookId</b></i></a>
+		  					</div>
+		  					<div class="panel-body">
+	  						 	Data: none
+		  					</div>
+		  					<div class="panel-body">
+		  						Require: <b><i>bookId</b></i>
+		  					</div>
+		  					<div class="panel-body">
+		  						Response: status = <b>1</b> and book info if success, <b>0</b> if error
+		  					</div>
+		  				</div>
+		  			</div>
+		  			<div class="col-sm-4">
+		  				<div class="panel panel-default">
+		  					<div class="panel-heading">3 - Add Book</div>
+		  					<div class="panel-body">
+		  						Definition: add book
+		  					</div>
+		  					<div class="panel-body">
+		  						Method: POST
+		  					</div>
+		  					<div class="panel-body">
+		  						URL: <a href="">http://api.ws.hoangdo.info/books/</a>
+		  					</div>
+		  					<div class="panel-body">
+	  						 	Data: book info (title, author, cover, publishYear, genres, review)
+		  					</div>
+		  					<div class="panel-body">
+		  						Require: <i>Authorization</i> header
+		  					</div>
+		  					<div class="panel-body">
+		  						Response: status = <b>1</b> if success, <b>0</b> if error
+		  					</div>
+		  				</div>
+		  			</div>
+		  			<div class="col-sm-4">
+		  				<div class="panel panel-default">
+		  					<div class="panel-heading">4 - Update Book</div>
+		  					<div class="panel-body">
+		  						Definition: update book information
+		  					</div>
+		  					<div class="panel-body">
+		  						Method: PUT
+		  					</div>
+		  					<div class="panel-body">
+		  						URL: <a href="">http://api.ws.hoangdo.info/books/<b><i>bookId</b></i></a>
+		  					</div>
+		  					<div class="panel-body">
+	  						 	Data: book info (title, author, cover, publishYear, genres, review)
+		  					</div>
+		  					<div class="panel-body">
+		  						Require: <b><i>bookId</b></i>, <i>Authorization</i> header
+		  					</div>
+		  					<div class="panel-body">
+		  						Response: status = <b>1</b> if success, <b>0</b> if error
+		  					</div>
+		  				</div>
+		  			</div>
+		  			<div class="col-sm-4">
+		  				<div class="panel panel-default">
+		  					<div class="panel-heading">4 - Delete Book</div>
+		  					<div class="panel-body">
+		  						Definition: delete a book
+		  					</div>
+		  					<div class="panel-body">
+		  						Method: DELETE
+		  					</div>
+		  					<div class="panel-body">
+		  						URL: <a href="">http://api.ws.hoangdo.info/books/<b><i>bookId</b></i></a>
+		  					</div>
+		  					<div class="panel-body">
+	  						 	Data: none
+		  					</div>
+		  					<div class="panel-body">
+		  						Require: <i>Authorization</i> header
+		  					</div>
+		  					<div class="panel-body">
+		  						Response: status = <b>1</b> if success, <b>0</b> if error
+		  					</div>
+		  				</div>
+		  			</div>
+		  		</div>
+		  	</div>
+		</div>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Upload</h3>
+			</div>
+		  	<div class="panel-body">
+		  		<div class="row">
+		  			<div class="col-sm-4">
+		  				<div class="panel panel-default">
+		  					<div class="panel-heading">1 - Upload Image</div>
+		  					<div class="panel-body">
+		  						Definition: upload an image to server
+		  					</div>
+		  					<div class="panel-body">
+		  						Method: POST
+		  					</div>
+		  					<div class="panel-body">
+		  						URL: <a href="">http://api.ws.hoangdo.info/upload</a>
+		  					</div>
+		  					<div class="panel-body">
+	  						 	Data: form data
+		  					</div>
+		  					<div class="panel-body">
+		  						Require: dataType (json), mimeType (multipart/form-data), contentType (false), processData (false)
+		  					</div>
+		  					<div class="panel-body">
+		  						Response: status = <b>1</b> and url of image if success, <b>0</b> if error
+		  					</div>
+		  				</div>
+		  			</div>
+		  		</div>
+		  	</div>
+		</div>
+	</div>
+</body>
+</html>
