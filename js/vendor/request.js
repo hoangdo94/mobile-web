@@ -99,6 +99,22 @@ function getBook(bookId, callback) {
   });
 }
 
+function deleteBook(bookId, callback) {
+  console.log(Lockr.get('authorizationHeader'));
+  var settings = {
+    "url": "http://api.ws.hoangdo.info/books/" + bookId,
+    "method": "DELETE",
+    headers: {
+      "Authorization": Lockr.get('authorizationHeader'),
+    }
+  };
+  $.ajax(settings).done(function(response) {
+      callback(response.message);
+  }, function(error) {
+    callback(error.message);
+  });
+}
+
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split('&');

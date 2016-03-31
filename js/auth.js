@@ -39,7 +39,7 @@ $(document).ready(function() {
       if (user && status == 1) {
         //set local storage
         Lockr.set('user', user);
-        Lockr.set('authorizationHeader', 'Basic ' + btoa(user.username + ':' + user.password));
+        Lockr.set('authorizationHeader', 'Basic ' + btoa(info.username + ':' + info.password));
         window.location.href = window.location.pathname.replace("auth.html", "index.html");
       } else {
         $('#login .notify').text('* Failed!');
