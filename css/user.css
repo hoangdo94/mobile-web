@@ -38,6 +38,9 @@ a.avt_edit_icon, a.avt_edit_icon:hover, a.avt_edit_icon:focus {
   margin-top: 10px;
   position: relative;
 }
+.cursor {
+  cursor: pointer;
+}
 .avt_edit_icon {
   visibility: hidden;
   opacity: 0;

@@ -119,6 +119,14 @@ $(document).ready(function() {
       }, 3000);
       return false;
     }
+    if ($('#upName').val().length < 3 || $('#upName').val().length > 20) {
+      $('.notify').text('Name\'s length at least 3 characters and maximum length of 16!')
+        .toggle();
+      setTimeout(function() {
+        $('.notify').toggle();
+      }, 3000);
+      return false;
+    }
     $('.loading').toggle();
     var newInfo = {
       username: $('#upUsername').val(),

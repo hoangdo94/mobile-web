@@ -11,6 +11,10 @@ $(document).ready(function() {
       $('.notify').text('* Password and re-password do not match!');
       return false;
     }
+    if ($('#registerUsername').val().length < 3 || $('#registerUsername').val().length > 16) {
+      $('.notify').text('* Username\'s length at least 3 characters and maximum length of 16!');
+      return false;
+    }
     $('.loading').toggle();
     var info = {
       username: $('#registerUsername').val(),
@@ -19,7 +23,7 @@ $(document).ready(function() {
     };
     register(info, function(result) {
       if (!result) {
-        $('#register .notify').text('* Failed!');
+        $('#register .notify').text('* Username or Email has existed!');
       } else {
         $('#register')[0].reset();
         $('#register .notify').text('');
@@ -45,7 +49,7 @@ $(document).ready(function() {
         Lockr.set('authorizationHeader', 'Basic ' + btoa(info.username + ':' + info.password));
         window.location.href = window.location.pathname.replace("auth.html", "index.html");
       } else {
-        $('#login .notify').text('* Failed!');
+        $('#login .notify').text('* User not found!');
       }
       $('.loading').toggle();
     });
