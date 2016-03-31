@@ -201,7 +201,7 @@ a.avt_edit_icon, a.avt_edit_icon:hover, a.avt_edit_icon:focus {
   border: 0;
   font-size: 100%;
   outline: none;
-  top: 3px;
+  top: 4px;
 }
 
 #setting .basic {
@@ -232,7 +232,6 @@ a.avt_edit_icon, a.avt_edit_icon:hover, a.avt_edit_icon:focus {
 }
 #setting .form-horizontal > .col-sm-8 {
   padding-top: 20px;
-  border-left: 1px solid;
 }
 #setting .col-sm-8 > .row {
   position: relative;
@@ -322,4 +321,6 @@ a.avt_edit_icon, a.avt_edit_icon:hover, a.avt_edit_icon:focus {
 }
 #notify {
   display: none;
+  text-align: center;
+  font-weight: bold;
 }
