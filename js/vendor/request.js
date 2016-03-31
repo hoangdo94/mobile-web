@@ -53,8 +53,22 @@ function getUser(userId, callback) {
   });
 }
 
-function updateInfo(userId, newInfo, callback) {
-
+function updateInfo(userId, header, newInfo, callback) {
+  $.ajax({
+    url: "http://api.ws.hoangdo.info/users/" + userId,
+    method: "PUT",
+    data: JSON.stringify(newInfo),
+    headers: {
+      "Authorization": header,
+    },
+    contentType: "application/json",
+    success: function (res) {
+      callback(res, 1)
+    },
+    error: function(res) {
+      callback(res, 2)
+    }
+  })
 }
 
 function getBooks(callback) {

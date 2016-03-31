@@ -1,104 +1,145 @@
 <!doctype html>
 <head>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/user.css">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile Web</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/user.css" rel="stylesheet">
+  <link href="css/ol.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-	<div class="container-fluid" style="position:relative;">
-		<div class="row" id="header-row">
-			<div class="container">
-				<div id="profile">
-					<div id="profile-information">
-						<div id="profile-image">
-							<p class="avt_edit trans">
-								<a class="avt_edit_icon zmbtn3 cursor" title="Update avatar" onclick="change_avatar()">
-									<em class="zmicn"></em>
-								</a>
-							</p>
-						</div>
-						<div id="profile-name" style="margin-bottom: 60px;">
-							<p>akai-sama</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<a title="Change background" class="editpfcover cursor" onclick="change_background()">
-			<span>Change background</span>
-			<em class="editpfcover_icn zmicn16"></em>
-		</a>
+	<div class="container">
+		<nav class="navbar navbar-default">
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#">Books Review</a>
+	        </div>
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+	            <a id="new-book" class="btn btn-primary navbar-btn">
+	              <i class="fa fa-plus"></i> New
+	            </a>
+	          </ul>
+	          <ul class="nav navbar-nav navbar-right">
+	            <li id="auth-link"><a href="auth.html">Register/Login</a></li>
+	            <p id="nav-user-info" class="navbar-text">
+	              Signed in as <a href="user.html" id="navbar-username"></a> (<a href="#" id="sign-out">Sign Out</a>)
+	            </p>
+	          </ul>
+	        </div>
+	        <!--/.nav-collapse -->
+	      </div>
+	      <!--/.container-fluid -->
+	    </nav>
 	</div>
 	<div class="container">
-		<div id="setting">
+		<div id="setting" class="row">
 			<div class="row">
 				<div class="col-sm-10">
-					<h2 style="font-weight:bold;">Settings</h2>
+					<h2 style="font-weight:bold;">Information</h2>
 				</div>
 				<div class="col-sm-2">
 					<button class="edit btn" ng-click="edit()"><i class="fa fa-pencil-square-o"></i> Edit</button>
-					<button class="save btn" ng-click="save()"><i class="fa fa-floppy-o"></i> Save</button>
+					
 				</div>
 			</div>
-			
-			
-		  	<form class="form-horizontal" role="form">
-		  		<div class="col-sm-10 col-sm-offset-1">
-		  			<div class="row">
-			  			<span class="basic icon"></span>
-			  			<div class="col-sm-10 col-sm-offset-1">
-			  				<strong>Basic Infomation:</strong>
-			  				<div class="form-group" style="margin-top:10px;">
-			  					<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Username</label>
-			  					<div class="col-sm-10">
-			  						<input type="text" class="form-control" value="Thanh Huy" readonly>
-			  					</div>
-				      		</div>
-				      		<div class="form-group">
-			  					<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Password</label>
-			  					<div class="col-sm-10">
-			  						<input type="password" class="form-control" value="Thanh Huy" readonly>
-			  					</div>
-				      		</div>
-				      		<div class="form-group" style="display: none;" id="re-pass">
-			  					<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Re-password</label>
-			  					<div class="col-sm-10">
-			  						<input type="password" class="form-control" value="Thanh Huy">
-			  					</div>
-				      		</div>
+			<hr>
+				<form class="form-horizontal" role="form">
+			  		<div class="col-sm-4" style=" padding-top: 20px;">
+			  			<div class="row" style="text-align: center;">
+			  				<strong>Avatar</strong>
+			  			</div>
+			  			<div class="ava">
+			  				<img class="img-responsive center-block">
+				  			<p class="avt_edit trans"></p>
+							<a class="avt_edit_icon zmbtn3 cursor" title="Update avatar">
+								<em class="zmicn"></em>
+							</a>
 			  			</div>
 			  		</div>
-			  		<div class="row">
-			  			<span class="contact icon"></span>
-			  			<div class="col-sm-10 col-sm-offset-1">
-			  				<strong>Contact Infomation:</strong>
-			  				<div class="form-group" style="margin-top:10px;">
-			  					<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Email</label>
-			  					<div class="col-sm-10">
-			  						<input type="email" class="form-control" value="huy@gmail.com" readonly>
-			  					</div>
-				      		</div>
-				      		<div class="form-group">
-			  					<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Website</label>
-			  					<div class="col-sm-10">
-			  						<input type="text" class="form-control" value="www.huy.com.vn" readonly>
-			  					</div>
-				      		</div>
-			  			</div>
+			  		<div class="col-sm-8">
+			  			<div class="row">
+				  			<span class="basic icon"></span>
+				  			<div class="col-sm-11 col-sm-offset-1">
+				  				<strong>Basic Infomation:</strong>
+				  				<div class="form-group" style="margin-top:10px;">
+				  					<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Username</label>
+				  					<div class="col-sm-10">
+				  						<input type="text" class="form-control" id="username" readonly required>
+				  					</div>
+					      		</div>
+					      		<div class="form-group" style="display: none;">
+				  					<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Password</label>
+				  					<div class="col-sm-10">
+				  						<input type="password" class="form-control" id="password" readonly required>
+				  					</div>
+					      		</div>
+					      		<div class="form-group" style="display: none;">
+				  					<label class="col-sm-2 control-label" id="re-pass" style="text-align:left; color:gray;">Re-password</label>
+				  					<div class="col-sm-10">
+				  						<input type="password" class="form-control" id="re-pass" required>
+				  					</div>
+					      		</div>
+					      		<div class="form-group">
+				  					<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Name</label>
+				  					<div class="col-sm-10">
+				  						<input type="text" class="form-control" id="name" readonly required>
+				  					</div>
+					      		</div>
+				  			</div>
+				  		</div>
+				  		<div class="row">
+				  			<span class="contact icon"></span>
+				  			<div class="col-sm-11 col-sm-offset-1">
+				  				<strong>Contact Infomation:</strong>
+				  				<div class="form-group" style="margin-top:10px;">
+				  					<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Email</label>
+				  					<div class="col-sm-10">
+				  						<input type="email" class="form-control" id="email" readonly required>
+				  					</div>
+					      		</div>
+				  			</div>
+				  		</div>
+				  		<div class="col-sm-12">
+				  			<button class="save btn pull-right" type="submit"><i class="fa fa-floppy-o"></i> Save</button>
+				  		</div>
+				  		<div class="col-sm-12" id="notify">
+				  		</div>
 			  		</div>
-			  		<div class="row">
-			  			<span class="other icon"></span>
-			  			<div class="col-sm-10 col-sm-offset-1">
-			  				<strong>Other Infomation:</strong>
-			  				<div class="form-group" style="margin-top:10px;">
-			  					<label class="col-sm-2 control-label" style="text-align:left; color:gray;">Title</label>
-			  					<div class="col-sm-10">
-			  						<input type="text" class="form-control" value="Designer and Developer living in Ho Chi Minh City, Vietnam" readonly>
-			  					</div>
-				      		</div>
-			  			</div>
-			  		</div>
-		  		</div>
-		  	</form>
+			  	</form>
+				
+		  	
+
+		  	<div class="loading" id="books-loading">
+	          <i class="fa fa-spinner fa-pulse fa-2x"></i>
+	        </div>
+		    <hr>
+	  	</div>
+	  	
+	  	<div class="row">
+	  		<h2 style="font-weight: bold;">Location</h2>
+	  		<label for="track" style="color: red; margin-bottom: 10px;">
+		      <input id="track" type="checkbox"/>
+		      *Track position
+		    </label>
+		    <div id="info" style="display: none;"></div>
+		    <div id="map" style="width: 100%;"></div>
 	  	</div>
 	</div>
 	<input type="file" name="upload" id="fileinput" style="display:none;">
@@ -106,6 +147,7 @@
 	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/vendor/request.js"></script>
 	<script type="text/javascript" src="js/vendor/lockr.min.js"></script>
+	<script type="text/javascript" src="js/vendor/ol.js"></script>
 	<script type="text/javascript" src="js/user.js"></script>
 </body>
 </html>
