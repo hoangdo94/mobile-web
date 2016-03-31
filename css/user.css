@@ -82,3 +82,7 @@ a.avt_edit_icon, a.avt_edit_icon:hover, a.avt_edit_icon:focus {
   outline: none;
   color: #fff;
 }
+.loading {
+  text-align: center;
+  display: none;
+}

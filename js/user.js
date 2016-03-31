@@ -111,6 +111,14 @@ $(document).ready(function() {
       }, 3000);
       return false;
     }
+    if (!$('#upPassword').val()) {
+      $('.notify').text('You did not enter password or re-password yet!')
+        .toggle();
+      setTimeout(function() {
+        $('.notify').toggle();
+      }, 3000);
+      return false;
+    }
     $('.loading').toggle();
     var newInfo = {
       username: $('#upUsername').val(),
@@ -134,6 +142,7 @@ $(document).ready(function() {
           })
           .toggle();
         updateContent(user);
+        location.reload();
       } else {
         $('#myModalNorm').modal('hide');
         $('#notify').text('Update failed')
